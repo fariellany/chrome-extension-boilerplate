@@ -11,6 +11,8 @@ const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 var alias = {
   'react-dom': '@hot-loader/react-dom',
+  "@utils": path.resolve(__dirname, './src/utils'),
+  "@containers": path.resolve(__dirname, './src/containers'),
 };
 
 // load the secrets
@@ -143,7 +145,7 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/pages/Content/index.css',
+          from: 'src/pages/Content/content.styles.css',
           to: path.join(__dirname, 'build'),
           force: true,
         },

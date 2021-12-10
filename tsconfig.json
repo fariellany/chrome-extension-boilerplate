@@ -13,11 +13,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": false,
-    "jsx": "react"
+    "rootDir": "src",
+    "baseUrl": ".",
+    "jsx": "react",
+    "paths": {
+      "@containers/*": ["src/containers/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "include": [
     "src",
-    "utils",
+    "src/utils",
     "type.d.ts"
   ],
   "exclude": ["build", "node_modules"]
