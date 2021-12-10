@@ -4,7 +4,8 @@ var webpack = require('webpack'),
   env = require('./config/env'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  TerserPlugin = require('terser-webpack-plugin');
+  TerserPlugin = require('terser-webpack-plugin'),
+  WebpackBar = require('webpackbar');
 
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
@@ -114,7 +115,10 @@ var options = {
       .concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
   },
   plugins: [
-    new webpack.ProgressPlugin(),
+    new WebpackBar({
+      name: env.NODE_ENV === 'development' ? '正在启动' : '正在打包',
+      color: '#fa8c16',
+    }),
     // expose and write the allowed env vars on the compiled bundle
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new CopyWebpackPlugin({
